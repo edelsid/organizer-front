@@ -1,5 +1,11 @@
 # Дипломное задание к курсу «Продвинутый JavaScript в браузере». Chaos Organizer
 
+## Ссылки:
+
+[![Build status](https://ci.appveyor.com/api/projects/status/at30yuc2neintm1b?svg=true)](https://ci.appveyor.com/project/edelsid/organizer-front)
+
+[GitHub Pages](https://edelsid.github.io/organizer-front/)
+
 ## Реализованные функции:
 
 1. Сохранение в истории ссылок и текстовых сообщений;
