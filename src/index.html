@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chaos Organizer</title>
+  <script src="https://kit.fontawesome.com/bab9dd7f33.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="widget">
+
+  <!--Боковое меню-->
+
+	<aside class="side-panel">
+    <header class="user">
+      <span class="avatar"></span>
+      <div class="user-info">
+        <span class="name">User</span>
+        <span class="role">Веб-разработчик</span>
+      </div>
+    </header>
+    <div class="categories">
+      <section class="filetypes">
+        <h2 class="cat-name">Файлы</h2>
+        <ul class="list">
+          <li class="point all">Все файлы
+            <span class="counter" id="all"></span>
+          </li>
+          <li class="point text-cat">Текст
+            <span class="counter" id="text"></span>
+          </li>
+          <li class="point img-cat">Изображения
+            <span class="counter" id="img"></span>
+          </li>
+          <li class="point voice-cat">Аудио
+            <span class="counter" id="audio"></span>
+          </li>
+          <li class="point video-cat">Видео
+            <span class="counter" id="video"></span>
+          </li>
+          <li class="point links-cat">Ссылки
+            <span class="counter" id="links"></span>
+          </li>
+        </ul>
+      </section>
+      <section class="labels">
+        <h2 class="cat-name">Метки</h2>
+        <ul class="list">
+          <li class="point label important">Важное
+            <span class="counter" id="imp"></span>
+          </li>
+          <li class="point label later">Сделать позже
+            <span class="counter" id="later"></span>
+          </li>
+          <li class="point label done">Сделано
+            <span class="counter" id="done"></span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </aside>
+
+  <!--Область канала-->
+
+  <div class="main-panel">
+    <header class="channel">
+      <h1 class="channel-name">Имя канала</h1>
+      <div class="periphery">
+        <form class="search-form">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="search" placeholder="Ищем...">
+        </form>
+      </div>
+    </header>
+    <main class="messages">
+
+      <!-- 
+      <div class="message">
+        <header class="msg-info">
+          <span class="avatar"></span>
+          <h3 class="autor">Bot</h3>
+          <time class="time">time</time>
+        </header>
+        <div class="msg-body">
+          <img class="img">
+          <img class="img">
+        </div>
+      </div> -->
+
+    </main>
+    <form class="input">
+      <input class="msg-input" placeholder="Введите свое сообщение здесь...">
+      <ul class="msg-buttons">
+        <li class="btn markers"></li>
+        <li class="btn attach"></li>
+        <li class="btn voice"></li>
+        <li class="btn video"></li>
+      </ul>
+    </form>
+  </div>
+</div>
+</body> 
+</html>

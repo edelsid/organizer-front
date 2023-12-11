@@ -1,0 +1,262 @@
+body {
+   position: relative;
+   margin: 0;
+}
+
+.widget {
+   display: flex;
+   font-family: 'Verdana';
+   background-color: white;
+   height: 100vh;
+}
+
+.side-panel {
+   min-width: 200px;
+   width: 30%;
+   color: white;
+   max-width: 300px;
+   background-color: rgba(34,6,74,1);
+   background: linear-gradient(0deg, rgba(0,4,41,1) 0%, rgba(34,6,74,1) 36%, rgba(94,8,76,1) 100%);
+   padding: 30px;
+}
+
+.user {
+   display: flex;
+   padding-bottom: 20px;
+   border-bottom: 1px solid white;
+}
+
+.avatar {
+   display: block;
+   flex-shrink: 0;
+   height: 50px;
+   width: 50px;
+   border-radius: 50%;
+   background-color: lightgrey;
+   background-image: url('../img/avatar.png');
+   background-position: center;
+   background-size: contain;
+   background-repeat: no-repeat;
+   margin-right: 20px;
+}
+
+.user-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.name {
+   font-weight: bold;
+   margin-bottom: 5px;
+   font-size: 16px;
+}
+
+.role {
+   font-size: 14px;
+}
+
+section {
+   font-size: 16px;
+   padding-top: 30px;
+}
+
+.cat-name {
+   font-size: 16px;
+   margin: 0 0 15px 0;
+}
+
+.list {
+   list-style: none;
+   line-height: 1em;
+   padding: 0;
+   margin: 0;
+}
+
+.point {
+   padding: 10px;
+   margin: 0;
+}
+
+.point::before, .btn::before {
+   font-family: 'Font Awesome 6 Free';
+   display: inline-block;
+   width: 20px;
+   margin-right: 10px;
+   font-weight: 600;
+}
+
+.all::before {
+   content: '\f15b';
+}
+
+.point:hover {
+   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.text-cat::before {
+   content: '\f031';
+}
+
+.img-cat::before {
+   content: '\f03e';
+}
+
+.voice-cat::before, .voice::before {
+   content: '\f130';
+}
+
+.video-cat::before, .video::before {
+   content: '\f008';
+}
+
+.links-cat::before {
+   content: '\f0c1';
+}
+
+.label::before {
+   content: '\f111';
+}
+
+.important::before {
+   color: lightcoral;
+}
+
+.later::before {
+   color: aqua;
+}
+
+.done::before {
+   color: lightgreen;
+}
+
+.main-panel {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 80%;
+   padding: 30px;
+}
+
+.channel {
+   display: flex;
+   justify-content: space-between;
+   height: 50px;
+   padding-bottom: 20px;
+   border-bottom: 1px solid lightgray;
+}
+
+.channel-name {
+   width: 65%;
+   font-size: 18px;
+   line-height: 50px;
+   margin: 0;
+}
+
+.periphery {
+   display: flex;
+   justify-content: end;
+   flex-shrink: 0;
+   margin: auto 20px auto 0;
+}
+
+.search {
+   width: 80%;
+   font-family: 'Verdana';
+   height: 20px;
+   padding: 5px;
+   text-indent: 30px;
+   border: 1px solid lightgray;
+   border-radius: 5px;
+}
+
+.fa-magnifying-glass {
+   position: relative;
+   left: 30px;
+   color: rgb(185, 185, 185);
+}
+
+.messages {
+   height: calc(100% - 170px);
+   margin: 20px 0 20px 0;
+   overflow-y: auto;
+}
+
+.message {
+   padding: 20px 10px 20px 10px;
+}
+
+.message:hover {
+   background-color: rgba(112, 174, 255, 0.2);
+}
+
+.msg-info {
+   display: flex;
+}
+
+.autor {
+   margin: auto 20px auto 0;
+   font-size: 16px;
+}
+
+.time {
+   margin: auto 10px auto 0;
+   font-size: 14px;
+   color: grey;
+}
+
+.msg-body {
+   margin-left: 70px;
+}
+
+.has-label {
+   padding-left: 20px;
+}
+
+.label-important {
+   border-left: 5px solid lightcoral;
+}
+
+.label-later {
+   border-left: 5px solid aqua;
+}
+
+.label-done {
+   border-left: 5px solid lightgreen;
+}
+
+.input {
+   width: 100%;
+   height: 50px;
+   padding-bottom: 20px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.msg-input {
+   width: calc(100% - 180px);
+   height: 30px;
+   padding: 10px;
+   border: 1px solid lightgray;
+   border-radius: 5px;
+}
+
+.msg-buttons {
+   width: 130px;
+   list-style: none;
+   padding: 0;
+   display: flex;
+   justify-content: space-between;
+}
+
+.btn::before {
+   color: grey;
+}
+
+.markers::before {
+   content: '\f591';
+}
+
+.attach::before {
+   content: '\f0c6';
+}
