@@ -225,6 +225,43 @@ section {
    border-left: 5px solid lightgreen;
 }
 
+.highlight {
+   background-color: rgba(94, 8, 75, 0.2);
+}
+
+.attachWrapper {
+   width: 300px;
+   position: relative;
+}
+
+.img-link {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   height: 200px;
+   background-color: black;
+}
+
+.attachment {
+   width: -webkit-fill-available;
+   max-height: 200px;
+}
+
+.nameplate {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 10px;
+   padding: 10px;
+   height: max-content;
+   font-weight: bold;
+   font-size: 14px;
+   color: black;
+   position: absolute;
+   background-color: rgba(255, 255, 255, 0.5);
+   width: -webkit-fill-available;
+   bottom: 0;
+}
+
 .input {
    width: 100%;
    height: 50px;
@@ -259,4 +296,85 @@ section {
 
 .attach::before {
    content: '\f0c6';
+}
+
+.attachWindow {
+   position: absolute;
+   top: 0; bottom: 0; left: 0; right: 0;
+   margin: auto;
+   padding: 30px;
+   width: 40%;
+   height: 40%;
+   border: 2px solid rgba(94, 8, 75, 1);
+   background-color: white;
+   border-radius: 8px;
+}
+
+.close {
+   display: block;
+   position: relative;
+   top: -15px;
+   left: 100%;
+   width: min-content;
+}
+
+.close::after {
+   font-family: 'Font Awesome 6 Free';
+   font-weight: bold;
+   content: '\f00d';
+   color: rgba(94, 8, 75, 1);
+}
+
+.dropWindow {
+   font-family: 'Verdana';
+   font-weight: bold;
+   margin: auto;
+   width: 100%;
+   height: 95%;
+   border: 2px dashed rgba(94, 8, 75, 1);
+   border-radius: inherit;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.dropMessage {
+   display: block;
+   font-size: 18px;
+   color: gray;
+   text-align: center;
+}
+
+.or {
+   display: block;
+   margin-top: 20px;
+   font-size: 14px;
+   color: rgba(94, 8, 75, 1);
+   text-align: center;
+}
+
+.inputWrapper {
+   margin-top: 30px;
+   position: relative;
+   height: 60px;
+   width: 50%;
+}
+
+.fileInput {
+   position: absolute;
+   top: 0; bottom: 0; right: 0; left: 0; margin: 0;
+   opacity: 0;
+}
+
+.overlap {
+   position: absolute;
+   background-color: rgba(94, 8, 75, 1);
+   padding: 10px;
+   text-align: center;
+   color: white;
+   font-weight: 400;
+   line-height: 40px;
+   top: 0; bottom: 0; right: 0; left: 0; margin: 0;
+   border-radius: 10px;
 }

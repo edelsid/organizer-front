@@ -19,28 +19,24 @@ export default class MessageView {
   static getDate(info) {
     const rawDate = new Date(info);
     const yy = rawDate.getFullYear().toString().slice(-2);
-    const mm = MessageView.insertZeroes(rawDate.getMonth() + 1);
-    const dd = MessageView.insertZeroes(rawDate.getDate());
-    const hh = MessageView.insertZeroes(rawDate.getHours());
-    const min = MessageView.insertZeroes(rawDate.getMinutes());
+    const mm = JSON.stringify((rawDate.getMonth() + 1)).padStart(2, 0);
+    const dd = JSON.stringify(rawDate.getDate()).padStart(2, 0);
+    const hh = JSON.stringify(rawDate.getHours()).padStart(2, 0);
+    const min = JSON.stringify(rawDate.getMinutes()).padStart(2, 0);
 
     const date = `${dd}.${mm}.${yy} ${hh}:${min}`;
     return date;
   }
 
-  static insertZeroes(value) {
-    let newValue;
-    if (value < 10) {
-      newValue = `0${value}`;
-      return newValue;
-    }
-    return value;
-  }
-
-  renderMessage({ element }, area) {
+  renderMessage({ element }, area, highlight) {
     const date = MessageView.getDate(element.date);
-    const msg = new Message(element.id, element.type, element.label, element.body, date);
-    const newMsg = msg.formation();
+    const msg = new Message({ element }, date, highlight);
+    let newMsg;
+    if (element.type === 'text' || element.type === 'links') {
+      newMsg = msg.formation();
+    } else {
+      newMsg = msg.attachFormation();
+    }
     area.appendChild(newMsg);
     this.msgCount(element.type, element.label);
   }

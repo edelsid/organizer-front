@@ -22,15 +22,24 @@ export default class WidgetAPI {
     });
   }
 
-  sendMessage(value, type) {
+  sendMessage(value, type, attach) {
     const body = {
       type: 'send',
       msg: {
         type,
         label: 'none',
         body: value,
+        attach,
         date: Date.now(),
       },
+    };
+    this.websocket.send(JSON.stringify(body));
+  }
+
+  searchMessage(value) {
+    const body = {
+      type: 'search',
+      msg: value,
     };
     this.websocket.send(JSON.stringify(body));
   }
