@@ -12,7 +12,7 @@ export default class Widget {
     this.view = new MessageView();
     this.fileView = new FileView();
     this.api = new WidgetAPI('https://organizer-9u9x.onrender.com', 'wss://organizer-9u9x.onrender.com/ws');
-    /*this.api = new WidgetAPI('http://localhost:7070', 'ws://localhost:7070/ws');*/
+    /* this.api = new WidgetAPI('http://localhost:7070', 'ws://localhost:7070/ws'); */
   }
 
   bindToDOM(container) {
