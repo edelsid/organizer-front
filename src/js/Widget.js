@@ -35,7 +35,7 @@ export default class Widget {
         if (this.view.state !== 'all') {
           this.view.state = 'all';
           this.area.innerHTML = '';
-          //или вместо этого можно было бы сбросить все счетчики до нуля
+          // или вместо этого можно было бы сбросить все счетчики до нуля
           this.loadState('filter');
         } else {
           this.view.renderMessage({ element }, this.area);
@@ -92,29 +92,29 @@ export default class Widget {
   }
 
   msgClick(e) {
-    let target = e.target;
+    let { target } = e;
     if (e.target.className !== 'labelWindow' && this.labelMenuOut) {
       this.labelPanel.element.remove();
       this.labelPanel = null;
       this.labelMenuOut = false;
       return;
-    } 
-    
-    if (e.target.className === 'msg-info' || 'msg-body') {
+    }
+
+    if (e.target.className === 'msg-info' || e.target.className === 'msg-body') {
       target = e.target.parentElement;
-    } else if (e.target.parentElement === 'msg-info' || 'msg-body') {
+    } else if (e.target.parentElement === 'msg-info' || e.target.className === 'msg-body') {
       target = e.target.parentElement.parentElement;
     }
     this.labelPanel = new LabelPanel();
     target.appendChild(this.labelPanel.element);
-    this.labelPanel.element.addEventListener('click', (e) => this.hookClick(e, target));
+    this.labelPanel.element.addEventListener('click', (event) => this.hookClick(event, target));
     this.labelMenuOut = true;
   }
 
   hookClick(e, msg) {
     console.log(e.target.id, msg);
     const msgBody = msg.querySelector('.msg-body');
-    if (msgBody.className.includes('label-'+e.target.id)) {
+    if (msgBody.className.includes(`label-${e.target.id}`)) {
       console.log('has already');
       return;
     }
@@ -125,7 +125,7 @@ export default class Widget {
       this.view.none += 1;
       this.view[msgBody.id] = Math.max(0, this.view[msgBody.id] - 1);
     } else {
-      msgBody.className = 'msg-body has-label label-'+e.target.id;
+      msgBody.className = `msg-body has-label label-${e.target.id}`;
       if (msgBody.id === 'none') {
         this.view.none = Math.max(0, this.view.none - 1);
       } else {
@@ -194,7 +194,7 @@ export default class Widget {
       const callback = (fileInfo, reqType) => {
         this.api.sendMessage(null, reqType, fileInfo);
         panel.element.remove();
-      }
+      };
       this.fileView.read(file, callback);
     });
   }

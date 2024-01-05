@@ -21,7 +21,7 @@ export default class FileView {
       };
       const reqType = FileView.determineFileType(file.type);
       callback(fileInfo, reqType);
-    }
+    };
 
     this.reader.readAsDataURL(file);
   }

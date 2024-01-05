@@ -62,18 +62,18 @@ export default class Message {
       attachData = `
       <a class="link img-link" href=${this.attach.data} rel="noopener" download=${this.attach.name}>
       <img class="attachment" src=${this.attach.data}></img>
-      </a>`
+      </a>`;
     } else if (this.type === 'video') {
       attachData = `
       <a class="link vid-link" href=${this.attach.data} rel="noopener" download=${this.attach.name}>
       <video class="attachment" src=${this.attach.data}></video>
       <span class="overlay"></span>
-      </a>`
+      </a>`;
     } else if (this.type === 'audio') {
       attachData = `
       <a class="link audio-link" href=${this.attach.data} rel="noopener" download=${this.attach.name}>
       <span class="audio-overlay"></span>
-      </a>`
+      </a>`;
     }
     return attachData;
   }
@@ -106,7 +106,7 @@ export default class Message {
       return highlighed;
     }
     const reg = new RegExp(this.highlight, 'gi');
-    highlighed = this.body.replaceAll(reg, `<span class="highlight">$&</span>`);
+    highlighed = this.body.replaceAll(reg, '<span class="highlight">$&</span>');
     return highlighed;
   }
 }
