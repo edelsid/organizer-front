@@ -14,6 +14,7 @@ export default class MessageView {
     this.imp = 0;
     this.later = 0;
     this.done = 0;
+    this.state = 'all';
   }
 
   static getDate(info) {
@@ -28,22 +29,24 @@ export default class MessageView {
     return date;
   }
 
-  renderMessage({ element }, area, highlight) {
+  renderMessage({ element }, area, highlight, operation) {
     const date = MessageView.getDate(element.date);
     const msg = new Message({ element }, date, highlight);
     let newMsg;
-    if (element.type === 'text' || element.type === 'links') {
+    if (element.type === 'text' || element.type === 'links' || element.type === 'command') {
       newMsg = msg.formation();
     } else {
       newMsg = msg.attachFormation();
     }
     area.appendChild(newMsg);
-    this.msgCount(element.type, element.label);
+    if (!operation) {
+      this.msgCount(element.type, element.label);
+    }
   }
 
   msgCount(type, label) {
-    this.all += 1;
-    if (this[type] !== undefined) this[type] += 1;
-    if (this[label] !== undefined) this[label] += 1;
+    if (type !== 'command') this.all += 1;
+    if (type !== undefined) this[type] += 1;
+    if (label !== undefined) this[label] += 1;
   }
 }

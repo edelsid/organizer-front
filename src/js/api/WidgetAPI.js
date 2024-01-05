@@ -24,11 +24,11 @@ export default class WidgetAPI {
 
   sendMessage(value, type, attach) {
     const body = {
-      type: 'send',
+      type: type === 'command' ? 'command' : 'send',
       msg: {
         type,
         label: 'none',
-        body: value,
+        body: type === 'command' ? value.slice(7) : value,
         attach,
         date: Date.now(),
       },
@@ -40,6 +40,23 @@ export default class WidgetAPI {
     const body = {
       type: 'search',
       msg: value,
+    };
+    this.websocket.send(JSON.stringify(body));
+  }
+
+  filterMessage(value) {
+    const body = {
+      type: 'filter',
+      value,
+    };
+    this.websocket.send(JSON.stringify(body));
+  }
+
+  changeLabel(label, targetID) {
+    const body = {
+      type: 'changeLabel',
+      label,
+      targetID,
     };
     this.websocket.send(JSON.stringify(body));
   }

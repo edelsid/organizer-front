@@ -12,6 +12,7 @@ export default class Message {
   formation() {
     const newMsg = document.createElement('div');
     newMsg.className = 'message';
+    newMsg.id = this.id;
     this.checkLink();
     this.body = this.checkHighlight();
     const labelString = this.determineLabel();
@@ -32,7 +33,9 @@ export default class Message {
   attachFormation() {
     const newMsg = document.createElement('div');
     newMsg.className = 'message';
+    newMsg.id = this.id;
     const labelString = this.determineLabel();
+    const preview = this.determinePreview();
 
     newMsg.innerHTML = `
     <header class="msg-info">
@@ -42,9 +45,7 @@ export default class Message {
     </header>${
   labelString}
       <div class="attachWrapper">
-        <a class="img-link" href=${this.attach.src} rel="noopener" download=${this.attach.name}>
-          <img class="attachment" src=${this.attach.src}></img>
-        </a>
+        ${preview}
         <div class="nameplate">
           <text class="attachName">${this.attach.name}</text>
           <text class="attachSize">${this.attach.size}Mb</text>
@@ -55,16 +56,38 @@ export default class Message {
     return newMsg;
   }
 
+  determinePreview() {
+    let attachData;
+    if (this.type === 'img') {
+      attachData = `
+      <a class="link img-link" href=${this.attach.data} rel="noopener" download=${this.attach.name}>
+      <img class="attachment" src=${this.attach.data}></img>
+      </a>`
+    } else if (this.type === 'video') {
+      attachData = `
+      <a class="link vid-link" href=${this.attach.data} rel="noopener" download=${this.attach.name}>
+      <video class="attachment" src=${this.attach.data}></video>
+      <span class="overlay"></span>
+      </a>`
+    } else if (this.type === 'audio') {
+      attachData = `
+      <a class="link audio-link" href=${this.attach.data} rel="noopener" download=${this.attach.name}>
+      <span class="audio-overlay"></span>
+      </a>`
+    }
+    return attachData;
+  }
+
   determineLabel() {
     let labelString;
     switch (this.label) {
-      case 'imp': labelString = '<div class="msg-body has-label label-important">';
+      case 'imp': labelString = '<div class="msg-body has-label label-imp" id="imp">';
         return labelString;
-      case 'later': labelString = '<div class="msg-body has-label label-later">';
+      case 'later': labelString = '<div class="msg-body has-label label-later" id="later">';
         return labelString;
-      case 'done': labelString = '<div class="msg-body has-label label-done">';
+      case 'done': labelString = '<div class="msg-body has-label label-done" id="done">';
         return labelString;
-      default: labelString = '<div class="msg-body">';
+      default: labelString = '<div class="msg-body" id="none">';
     }
     return labelString;
   }
@@ -82,7 +105,8 @@ export default class Message {
       highlighed = `<span class="highlight">${this.body}</span>`;
       return highlighed;
     }
-    highlighed = this.body.replace(this.highlight, `<span class="highlight">${this.highlight}</span>`);
+    const reg = new RegExp(this.highlight, 'gi');
+    highlighed = this.body.replaceAll(reg, `<span class="highlight">$&</span>`);
     return highlighed;
   }
 }
